@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+label{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+input{
+    border: 1px solid rgb(134, 124, 124);
+    outline: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+input:hover{
+    border: 1px solid rgb(71, 66, 66);
+}
+
+input:focus{
+    border: 1px solid teal;
+}

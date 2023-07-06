@@ -1,0 +1,128 @@
+.container{
+    min-width: 350px;
+    min-height: 450px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    padding-top: 24px;
+    height: fit-content;
+    margin: 0 auto;
+    
+}
+
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-x: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.21);
+}
+
+.header .section{
+    font-size: 1rem;
+    padding: 10px;
+    white-space: nowrap;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    /* background-color: bisque; */
+    /* gap: 10px; */
+}
+
+.header .active{
+    border-bottom: 2px solid teal;
+    color: teal;
+}
+
+.body{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    padding: 30px;
+    padding-top: 0;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    gap: 15px;
+}
+
+.detail .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.detail .column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chips{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.chip{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: grey;
+    padding: 7px;
+    border-radius: 30px;
+}
+
+.chip p{
+    font-weight: 500;
+    font-size: 1rem;
+    color: antiquewhite;
+}
+
+.chip svg{
+    color: antiquewhite;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+}
+.chips .active {
+    background-color: teal;
+}
+.chips .new{
+    color: teal;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 20px;
+    padding-top: 4px;
+}
+
+.body button{
+    width: fit-content;
+    padding: 5.5px 6.5px;
+    border-radius: 7px;
+    font-size: 1rem;
+    font-family: cursive;
+    background-color: teal;
+    color: blanchedalmond;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    gap: 4px;
+    transition: 150ms;
+}
+
+.body button svg{
+    height: 22px;
+    width: 18px;
+}
+
+.body button:active {
+    transform: translateY(2px);
+}
