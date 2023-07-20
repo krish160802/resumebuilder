@@ -117,6 +117,25 @@ export const Editor = (props) => {
         },
       }))
     }
+
+    if(sections[active]===sections.crtf){
+      const tmpDetail = {
+        title:val.title,
+        points:val.points,
+      }
+
+      const tmpDetails = [...information[sections.crtf]?.details];
+      tmpDetails[activeChip] = tmpDetail;
+
+      props.setInformation((prv) =>({
+        ...prv,
+        [sections.crtf] :{
+          ...prv[sections.crtf],
+          details:tmpDetails,
+          secTitle,
+        },
+      }))
+    }
     
     if(sections[active]===sections.wrkexp){
       const tmpDetail = {
@@ -491,6 +510,40 @@ export const Editor = (props) => {
     </div>
   );
 
+  const crtfBody = (
+    <div className={styles.detail}>
+      <div className={styles.row}>
+        <Inputctrl
+          label="Title"
+          value = {val.title}
+          placeholder="Enter certificate title"
+          onChange={(e)=>
+            setVal((prv)=>({...prv, title: e.target.value}))
+          }
+        />
+      </div>
+      
+      <div className={styles.column}>
+        <label>Certificate description</label>
+        <Inputctrl
+            placeholder="Line 1"
+            value = {val.points ? val.points[0] : ""}
+            onChange={(e)=>pointUpdate(e.target.value,0)}
+        />
+        <Inputctrl
+            placeholder="Line 2"
+            value = {val.points ? val.points[1] : ""}
+            onChange={(e)=>pointUpdate(e.target.value,1)}
+        />
+        <Inputctrl
+            placeholder="Line 3"
+            value = {val.points ? val.points[2] : ""}
+            onChange={(e)=>pointUpdate(e.target.value,2)}
+        />
+      </div>
+    </div>
+); 
+
   const sklBody = (
     <div className={styles.detail}>
       <div className={styles.row}>
@@ -526,6 +579,10 @@ export const Editor = (props) => {
 
     if(sections[active]===sections.skl){
       return sklBody;
+    }
+
+    if(sections[active]===sections.crtf){
+      return crtfBody;
     }
 
     if(sections[active]===sections.achieve){
@@ -647,7 +704,7 @@ export const Editor = (props) => {
 
   return (
     <div className={styles.container}>
-        <div className={styles.header}>
+        <div id="tut5" className={styles.header}>
             {Object.keys(sections)?.map((key)=>(
                 <div 
                     className={`${styles.section} ${active === key ? styles.active : "" }`}
@@ -699,7 +756,7 @@ export const Editor = (props) => {
         </div>
             {genBody()}
 
-            <button onClick={submissionUpdate}>Save <Save/></button>
+            <button id="tut4" onClick={submissionUpdate}>Save <Save/></button>
         </div>
     </div>
   )

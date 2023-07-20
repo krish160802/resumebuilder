@@ -15,6 +15,7 @@ export const Body = () => {
     skl:"Skill",
     prj: "Project",
     wrkexp: "Work Experience",
+    crtf:"Certificates",
     achieve: "Achievements",
     // oth: "Others"
   };
@@ -53,6 +54,12 @@ export const Body = () => {
       details:[],
     },
 
+    [sections.crtf]:{
+      id:sections.crtf,
+      sectionTitle:sections.crtf,
+      details:[],
+    },
+
     [sections.achieve]:{
       id:sections.achieve,
       sectionTitle:sections.achieve,
@@ -75,7 +82,7 @@ export const Body = () => {
     <div className={styles.container}>
         <p className={styles.heading}>CRAFT YOUR RESUME</p>
         <div className={styles.toolbar}>
-            <div className={styles.colors}>
+            <div id="tut2" className={styles.colors}>
                 {colors.map((it)=>(
                     <span
                         key={it}
@@ -87,7 +94,7 @@ export const Body = () => {
             </div>
             <ReactToPrint
               trigger={() => {
-                return(<button>Download <Download/></button>);
+                return(<button id="tut3">Download <Download/></button>);
               }}
               content={() => resumeRef.current}
             />

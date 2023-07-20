@@ -4,7 +4,7 @@ import resumeSvg from '../../assets/resume.svg'
 function Header() {
   
   return (
-    <div className={styles.container}>
+    <div id="tut1" className={styles.container}>
         <div className={styles.left}>
             <p className={styles.heading}><span>Unlock</span> your professional potential</p>
             <p className={styles.heading}>with our cutting-edge <span>ResumeCraft</span></p>

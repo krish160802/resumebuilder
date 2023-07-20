@@ -14,6 +14,7 @@ const Resume = forwardRef((props,ref) => {
     prj: information[sections.prj],
     wrkexp: information[sections.wrkexp],
     achieve: information[sections.achieve],
+    crtf: information[sections.crtf],
     skl: information[sections.skl]
 
   }
@@ -88,14 +89,13 @@ const Resume = forwardRef((props,ref) => {
           <div className={styles.item}>
             
             {item.skill ? (
-                <a className={styles.link}>
+                <a className={styles.linka}>
                   <Edit />
                   {item.skill}
                 </a>
             ) : (
                 <span />
             )}
-
             
           </div>
         ))}  
@@ -127,6 +127,41 @@ const Resume = forwardRef((props,ref) => {
                 </a>
             ) : (
                 <span />
+            )}
+
+            {item.points?.length > 0 ? (
+                <ul className={styles.points}>
+                  {item.points?.map((elem, index) => (
+                    <li className={styles.point} key={elem + index}>
+                      {elem}
+                    </li>
+                  ))}
+                </ul>
+            ) : (
+                <span />
+            )}
+            
+          </div>
+        ))}  
+      </div>
+    </div>
+    ),
+
+    [sections.crtf] : (
+      <div key={"crtf"} className={`${styles.section} ${
+        infor.crtf?.sectionTitle ? "" : styles.hidden
+      }`}>
+
+      {/* .trim().length!==0 */}
+
+      <div className={styles.sectionTitle}>{infor.crtf?.sectionTitle}</div>
+      <div className={styles.content}>
+        {infor.crtf?.details?.map((item) => (
+          <div className={styles.item}>
+            {item.title ? (
+              <p className={styles.title}>{item.title}</p>
+            ) : (
+              <span />
             )}
 
             {item.points?.length > 0 ? (
@@ -303,6 +338,7 @@ const Resume = forwardRef((props,ref) => {
       ],
       [
         sections.wrkexp,
+        sections.crtf,
         sections.achieve
       ]
     ])
@@ -330,7 +366,7 @@ const Resume = forwardRef((props,ref) => {
 
           <div className={styles.links}>
             {infor.info?.detail?.email && (
-              <a className={styles.link} type="email">
+              <a href="mailto:${infor.info?.detail?.email}" className={styles.link} type="email">
                 <AtSign /> {infor.info?.detail?.email}
               </a>
             )}
@@ -342,13 +378,13 @@ const Resume = forwardRef((props,ref) => {
             )}
            
             {infor.info?.detail?.github && (
-              <a className={styles.link} type="text">
+              <a href={infor.info?.detail?.github} className={styles.link} type="text">
                 <GitHub /> {infor.info?.detail?.github}
               </a>
             )}
 
             {infor.info?.detail?.linkedin && (
-              <a className={styles.link} type="text">
+              <a href = {infor.info?.detail?.linkedin} className={styles.link} type="text">
                 <Linkedin /> {infor.info?.detail?.linkedin}
               </a>
             )}  
@@ -356,7 +392,7 @@ const Resume = forwardRef((props,ref) => {
           </div>
         </div>
 
-        <div className={styles.main}>
+        <div id="tut6" className={styles.main}>
           <div className={styles.col1}>
           {
             columns[0].map(item=>sectionDiv[item])

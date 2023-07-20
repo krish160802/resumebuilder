@@ -45,7 +45,11 @@
     gap: 5px;
     cursor: pointer;
     font-family: monospace;
+    text-decoration: none;
+    color: inherit;
 }
+
+
 
 .header .link svg{
     color: var(--color);
@@ -93,7 +97,7 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .content .title{
@@ -116,11 +120,26 @@
     color: var(--color);
 }
 
+.content .linka{
+    display: flex;
+    /* gap: 3px; */
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--color);
+}
+
 .content .link svg {
     height: 16px;
     width: 16px;
     color: var(--color);
 }
+
+.content .linka svg {
+    height: 16px;
+    width: 16px;
+    color: var(--color);
+}
+
 
 .content .date{
     display: flex;
